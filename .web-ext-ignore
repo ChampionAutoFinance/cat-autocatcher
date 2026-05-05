@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+firefox-test-profile
+firefox-live-profile
+.firefox-cat-autocatcher-profile
+cat-autocatcher-extension.xpi
+*.zip
+.git
+.gitignore
+web-ext-artifacts

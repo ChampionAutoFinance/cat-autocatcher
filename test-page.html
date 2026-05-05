@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cat Auto Catcher Test</title>
+    <style>
+      body {
+        background: #0b1020;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      main {
+        display: grid;
+        gap: 14px;
+        margin: 0 auto;
+        max-width: 760px;
+        padding: 40px 18px 160px;
+      }
+
+      button {
+        background: #2563eb;
+        border: 0;
+        border-radius: 7px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 800;
+        padding: 10px 14px;
+        width: max-content;
+      }
+
+      .chat {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .message {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 7px;
+        padding: 10px;
+      }
+
+      [role="textbox"] {
+        background: #fff;
+        border-radius: 7px;
+        color: #0f172a;
+        min-height: 24px;
+        outline: none;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button id="show-trigger" type="button">Show Test Trigger</button>
+      <section class="chat" id="chat">
+        <div class="message">Waiting.</div>
+      </section>
+      <div id="box" role="textbox" contenteditable="true" aria-label="Message"></div>
+      <p>Sends: <strong id="sends">0</strong></p>
+    </main>
+    <script>
+      const chat = document.getElementById("chat");
+      const box = document.getElementById("box");
+      const sends = document.getElementById("sends");
+      let sendCount = 0;
+
+      document.getElementById("show-trigger").addEventListener("click", () => {
+        const message = document.createElement("div");
+        message.className = "message";
+        message.textContent = 'cat has appeared! type "cat" to catch it!';
+        chat.append(message);
+      });
+
+      box.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") {
+          return;
+        }
+
+        event.preventDefault();
+        if (box.textContent.trim().toLowerCase() === "cat") {
+          sendCount += 1;
+          sends.textContent = String(sendCount);
+          box.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>

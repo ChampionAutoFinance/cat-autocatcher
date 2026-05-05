@@ -1,0 +1,34 @@
+{
+  "name": "cat-autocatcher",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "web-ext run --source-dir .",
+    "build:xpi": "web-ext build --source-dir . --artifacts-dir web-ext-artifacts --overwrite-dest",
+    "lint": "web-ext lint --source-dir ."
+  },
+  "webExt": {
+    "ignoreFiles": [
+      "node_modules",
+      "package.json",
+      "package-lock.json",
+      "firefox-test-profile",
+      "firefox-live-profile",
+      ".firefox-cat-autocatcher-profile",
+      "cat-autocatcher-extension.xpi",
+      "*.zip",
+      ".git",
+      ".gitignore",
+      ".web-ext-ignore",
+      "web-ext-artifacts",
+      "README.md",
+      "INSTALL.md",
+      "launch-cat-autocatcher-mac.command",
+      "launch-cat-autocatcher-windows.bat",
+      "test-page.html"
+    ]
+  },
+  "devDependencies": {
+    "web-ext": "^10.1.0"
+  }
+}
