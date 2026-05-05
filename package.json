@@ -1,6 +1,6 @@
 {
   "name": "cat-autocatcher",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "web-ext run --source-dir .",
